@@ -1,5 +1,5 @@
 
-name: Build ARROWS APK
+name: ARROWS Fixed APK
 
 on:
   workflow_dispatch:
@@ -27,8 +27,7 @@ jobs:
           gradle-version: '8.11.1'
 
       - name: Extract project
-        run: |
-          unzip -o ARROWS_Android_Source.zip -d extracted
+        run: unzip -o ARROWS_Android_Source_Fixed.zip -d extracted
 
       - name: Build APK
         working-directory: extracted/ArrowSnakesAndroid
@@ -37,5 +36,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ARROWS-APK
+          name: ARROWS-Fixed-APK
           path: extracted/ArrowSnakesAndroid/app/build/outputs/apk/debug/app-debug.apk
